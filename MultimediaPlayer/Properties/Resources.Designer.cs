@@ -69,5 +69,15 @@ namespace MultimediaPlayer.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zelaznaDziewica {
+            get {
+                object obj = ResourceManager.GetObject("zelaznaDziewica", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

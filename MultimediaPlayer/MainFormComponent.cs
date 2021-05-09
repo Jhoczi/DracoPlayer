@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,11 @@ namespace MultimediaPlayer
 {
     public partial class MainFormComponent : Form
     {
+        // Font
         PrivateFontCollection _pfc = new PrivateFontCollection();
+        // NAudio
+        AudioComponent player = new AudioComponent();
+
         public MainFormComponent()
         {
             InitializeComponent();
@@ -32,5 +37,19 @@ namespace MultimediaPlayer
             _pfc.AddMemoryFont(data, fontLength);
         }
 
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            if (btnPlay.IconChar != FontAwesome.Sharp.IconChar.StopCircle)
+            {
+                btnPlay.IconChar = FontAwesome.Sharp.IconChar.StopCircle;
+                player.Play();
+            }
+            else
+            {
+                btnPlay.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
+                player.Stop();
+            }
+                     
+        }
     }
 }

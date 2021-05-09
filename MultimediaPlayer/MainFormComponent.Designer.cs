@@ -29,7 +29,7 @@ namespace MultimediaPlayer
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.btnFilms = new FontAwesome.Sharp.IconButton();
             this.labelVideos = new System.Windows.Forms.Label();
             this.btnAlbums = new FontAwesome.Sharp.IconButton();
@@ -45,33 +45,54 @@ namespace MultimediaPlayer
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.iconLogo = new FontAwesome.Sharp.IconButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.panelMediaBottom = new System.Windows.Forms.Panel();
+            this.btnVolume = new FontAwesome.Sharp.IconButton();
+            this.btnPrev = new FontAwesome.Sharp.IconButton();
+            this.btnNext = new FontAwesome.Sharp.IconButton();
+            this.btnPlay = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.labelPlayerEnd = new MetroFramework.Controls.MetroLabel();
+            this.labelPlayerStart = new MetroFramework.Controls.MetroLabel();
+            this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
+            this.playerTrackBar = new MetroFramework.Controls.MetroTrackBar();
+            this.currentPlayPictureBox = new System.Windows.Forms.PictureBox();
+            this.panelMainMenu = new System.Windows.Forms.Panel();
+            this.PanelElementList = new System.Windows.Forms.Panel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.labelAuthor1 = new System.Windows.Forms.Label();
+            this.labelTitle1 = new System.Windows.Forms.Label();
+            this.btnPlaySong1 = new FontAwesome.Sharp.IconButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelSearchBar.SuspendLayout();
+            this.panelMediaBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentPlayPictureBox)).BeginInit();
+            this.panelMainMenu.SuspendLayout();
+            this.PanelElementList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelMenu
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.panel1.Controls.Add(this.btnFilms);
-            this.panel1.Controls.Add(this.labelVideos);
-            this.panel1.Controls.Add(this.btnAlbums);
-            this.panel1.Controls.Add(this.btnArtists);
-            this.panel1.Controls.Add(this.btnSongs);
-            this.panel1.Controls.Add(this.labelYourMusic);
-            this.panel1.Controls.Add(this.btnPlaylists);
-            this.panel1.Controls.Add(this.btnActivity);
-            this.panel1.Controls.Add(this.btnBrowse);
-            this.panel1.Controls.Add(this.labelMain);
-            this.panel1.Controls.Add(this.panelLogo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 727);
-            this.panel1.TabIndex = 0;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.panelMenu.Controls.Add(this.btnFilms);
+            this.panelMenu.Controls.Add(this.labelVideos);
+            this.panelMenu.Controls.Add(this.btnAlbums);
+            this.panelMenu.Controls.Add(this.btnArtists);
+            this.panelMenu.Controls.Add(this.btnSongs);
+            this.panelMenu.Controls.Add(this.labelYourMusic);
+            this.panelMenu.Controls.Add(this.btnPlaylists);
+            this.panelMenu.Controls.Add(this.btnActivity);
+            this.panelMenu.Controls.Add(this.btnBrowse);
+            this.panelMenu.Controls.Add(this.labelMain);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(220, 727);
+            this.panelMenu.TabIndex = 0;
             // 
             // btnFilms
             // 
@@ -325,32 +346,264 @@ namespace MultimediaPlayer
             this.iconLogo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconLogo.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // panelMediaBottom
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(220, 627);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(983, 100);
-            this.panel3.TabIndex = 2;
+            this.panelMediaBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMediaBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.panelMediaBottom.Controls.Add(this.btnVolume);
+            this.panelMediaBottom.Controls.Add(this.btnPrev);
+            this.panelMediaBottom.Controls.Add(this.btnNext);
+            this.panelMediaBottom.Controls.Add(this.btnPlay);
+            this.panelMediaBottom.Controls.Add(this.label1);
+            this.panelMediaBottom.Controls.Add(this.labelTitle);
+            this.panelMediaBottom.Controls.Add(this.labelPlayerEnd);
+            this.panelMediaBottom.Controls.Add(this.labelPlayerStart);
+            this.panelMediaBottom.Controls.Add(this.metroTrackBar1);
+            this.panelMediaBottom.Controls.Add(this.playerTrackBar);
+            this.panelMediaBottom.Controls.Add(this.currentPlayPictureBox);
+            this.panelMediaBottom.Location = new System.Drawing.Point(220, 585);
+            this.panelMediaBottom.Name = "panelMediaBottom";
+            this.panelMediaBottom.Size = new System.Drawing.Size(983, 142);
+            this.panelMediaBottom.TabIndex = 4;
             // 
-            // panel4
+            // btnVolume
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(220, 328);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(983, 299);
-            this.panel4.TabIndex = 3;
+            this.btnVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVolume.FlatAppearance.BorderSize = 0;
+            this.btnVolume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeUp;
+            this.btnVolume.IconColor = System.Drawing.Color.White;
+            this.btnVolume.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVolume.IconSize = 24;
+            this.btnVolume.Location = new System.Drawing.Point(834, 62);
+            this.btnVolume.Name = "btnVolume";
+            this.btnVolume.Size = new System.Drawing.Size(31, 34);
+            this.btnVolume.TabIndex = 10;
+            this.btnVolume.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // btnPrev
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(220, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(983, 328);
-            this.panel2.TabIndex = 1;
+            this.btnPrev.FlatAppearance.BorderSize = 0;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            this.btnPrev.IconColor = System.Drawing.Color.White;
+            this.btnPrev.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrev.Location = new System.Drawing.Point(461, 59);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(37, 58);
+            this.btnPrev.TabIndex = 9;
+            this.btnPrev.UseVisualStyleBackColor = true;
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
+            this.btnNext.IconColor = System.Drawing.Color.White;
+            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNext.Location = new System.Drawing.Point(558, 59);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(37, 58);
+            this.btnNext.TabIndex = 8;
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.FlatAppearance.BorderSize = 0;
+            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlay.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
+            this.btnPlay.IconColor = System.Drawing.Color.White;
+            this.btnPlay.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPlay.Location = new System.Drawing.Point(504, 65);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(48, 46);
+            this.btnPlay.TabIndex = 7;
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(148, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Iron Maiden";
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.ForeColor = System.Drawing.Color.LightGray;
+            this.labelTitle.Location = new System.Drawing.Point(148, 44);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(155, 25);
+            this.labelTitle.TabIndex = 5;
+            this.labelTitle.Text = "Fear of the Dark";
+            // 
+            // labelPlayerEnd
+            // 
+            this.labelPlayerEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPlayerEnd.AutoSize = true;
+            this.labelPlayerEnd.CustomBackground = true;
+            this.labelPlayerEnd.CustomForeColor = true;
+            this.labelPlayerEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelPlayerEnd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPlayerEnd.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.labelPlayerEnd.ForeColor = System.Drawing.Color.White;
+            this.labelPlayerEnd.Location = new System.Drawing.Point(915, 17);
+            this.labelPlayerEnd.Name = "labelPlayerEnd";
+            this.labelPlayerEnd.Size = new System.Drawing.Size(44, 19);
+            this.labelPlayerEnd.TabIndex = 4;
+            this.labelPlayerEnd.Text = "21:37";
+            // 
+            // labelPlayerStart
+            // 
+            this.labelPlayerStart.AutoSize = true;
+            this.labelPlayerStart.CustomBackground = true;
+            this.labelPlayerStart.CustomForeColor = true;
+            this.labelPlayerStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelPlayerStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPlayerStart.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.labelPlayerStart.ForeColor = System.Drawing.Color.White;
+            this.labelPlayerStart.Location = new System.Drawing.Point(148, 17);
+            this.labelPlayerStart.Name = "labelPlayerStart";
+            this.labelPlayerStart.Size = new System.Drawing.Size(36, 19);
+            this.labelPlayerStart.TabIndex = 3;
+            this.labelPlayerStart.Text = "0:00";
+            // 
+            // metroTrackBar1
+            // 
+            this.metroTrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroTrackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.metroTrackBar1.CustomBackground = true;
+            this.metroTrackBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(5)))), ((int)(((byte)(78)))));
+            this.metroTrackBar1.Location = new System.Drawing.Point(871, 64);
+            this.metroTrackBar1.Name = "metroTrackBar1";
+            this.metroTrackBar1.Size = new System.Drawing.Size(88, 27);
+            this.metroTrackBar1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroTrackBar1.TabIndex = 2;
+            this.metroTrackBar1.Text = "metroTrackBar1";
+            this.metroTrackBar1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTrackBar1.Value = 20;
+            // 
+            // playerTrackBar
+            // 
+            this.playerTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.playerTrackBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.playerTrackBar.CustomBackground = true;
+            this.playerTrackBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(5)))), ((int)(((byte)(78)))));
+            this.playerTrackBar.Location = new System.Drawing.Point(199, 17);
+            this.playerTrackBar.Name = "playerTrackBar";
+            this.playerTrackBar.Size = new System.Drawing.Size(699, 27);
+            this.playerTrackBar.Style = MetroFramework.MetroColorStyle.White;
+            this.playerTrackBar.TabIndex = 1;
+            this.playerTrackBar.Text = "metroTrackBar1";
+            this.playerTrackBar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.playerTrackBar.Value = 20;
+            // 
+            // currentPlayPictureBox
+            // 
+            this.currentPlayPictureBox.BackgroundImage = global::MultimediaPlayer.Properties.Resources.zelaznaDziewica;
+            this.currentPlayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.currentPlayPictureBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.currentPlayPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.currentPlayPictureBox.Name = "currentPlayPictureBox";
+            this.currentPlayPictureBox.Size = new System.Drawing.Size(131, 142);
+            this.currentPlayPictureBox.TabIndex = 0;
+            this.currentPlayPictureBox.TabStop = false;
+            // 
+            // panelMainMenu
+            // 
+            this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.panelMainMenu.Controls.Add(this.PanelElementList);
+            this.panelMainMenu.Location = new System.Drawing.Point(220, 0);
+            this.panelMainMenu.Name = "panelMainMenu";
+            this.panelMainMenu.Size = new System.Drawing.Size(980, 585);
+            this.panelMainMenu.TabIndex = 1;
+            // 
+            // PanelElementList
+            // 
+            this.PanelElementList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(71)))), ((int)(((byte)(82)))));
+            this.PanelElementList.Controls.Add(this.metroLabel1);
+            this.PanelElementList.Controls.Add(this.labelAuthor1);
+            this.PanelElementList.Controls.Add(this.labelTitle1);
+            this.PanelElementList.Controls.Add(this.btnPlaySong1);
+            this.PanelElementList.Controls.Add(this.pictureBox1);
+            this.PanelElementList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelElementList.Location = new System.Drawing.Point(0, 0);
+            this.PanelElementList.Name = "PanelElementList";
+            this.PanelElementList.Padding = new System.Windows.Forms.Padding(10);
+            this.PanelElementList.Size = new System.Drawing.Size(980, 69);
+            this.PanelElementList.TabIndex = 0;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.CustomBackground = true;
+            this.metroLabel1.CustomForeColor = true;
+            this.metroLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.ForeColor = System.Drawing.Color.White;
+            this.metroLabel1.Location = new System.Drawing.Point(582, 28);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(36, 19);
+            this.metroLabel1.TabIndex = 11;
+            this.metroLabel1.Text = "7:18";
+            // 
+            // labelAuthor1
+            // 
+            this.labelAuthor1.AutoSize = true;
+            this.labelAuthor1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelAuthor1.ForeColor = System.Drawing.Color.LightGray;
+            this.labelAuthor1.Location = new System.Drawing.Point(417, 28);
+            this.labelAuthor1.Name = "labelAuthor1";
+            this.labelAuthor1.Size = new System.Drawing.Size(90, 19);
+            this.labelAuthor1.TabIndex = 11;
+            this.labelAuthor1.Text = "Iron Maiden";
+            // 
+            // labelTitle1
+            // 
+            this.labelTitle1.AutoSize = true;
+            this.labelTitle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle1.ForeColor = System.Drawing.Color.LightGray;
+            this.labelTitle1.Location = new System.Drawing.Point(182, 28);
+            this.labelTitle1.Name = "labelTitle1";
+            this.labelTitle1.Size = new System.Drawing.Size(133, 19);
+            this.labelTitle1.TabIndex = 11;
+            this.labelTitle1.Text = "1. Fear of the Dark";
+            // 
+            // btnPlaySong1
+            // 
+            this.btnPlaySong1.FlatAppearance.BorderSize = 0;
+            this.btnPlaySong1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlaySong1.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPlaySong1.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
+            this.btnPlaySong1.IconColor = System.Drawing.Color.White;
+            this.btnPlaySong1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPlaySong1.IconSize = 24;
+            this.btnPlaySong1.Location = new System.Drawing.Point(110, 14);
+            this.btnPlaySong1.Name = "btnPlaySong1";
+            this.btnPlaySong1.Size = new System.Drawing.Size(48, 50);
+            this.btnPlaySong1.TabIndex = 11;
+            this.btnPlaySong1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::MultimediaPlayer.Properties.Resources.zelaznaDziewica;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 49);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // MainFormComponent
             // 
@@ -358,27 +611,31 @@ namespace MultimediaPlayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1203, 727);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMediaBottom);
+            this.Controls.Add(this.panelMainMenu);
+            this.Controls.Add(this.panelMenu);
             this.Name = "MainFormComponent";
             this.Text = "MainFormComponent";
-            this.panel1.ResumeLayout(false);
+            this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelSearchBar.ResumeLayout(false);
             this.panelSearchBar.PerformLayout();
+            this.panelMediaBottom.ResumeLayout(false);
+            this.panelMediaBottom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentPlayPictureBox)).EndInit();
+            this.panelMainMenu.ResumeLayout(false);
+            this.PanelElementList.ResumeLayout(false);
+            this.PanelElementList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMainMenu;
         private FontAwesome.Sharp.IconButton btnSongs;
         private System.Windows.Forms.Label labelYourMusic;
         private FontAwesome.Sharp.IconButton btnPlaylists;
@@ -393,5 +650,23 @@ namespace MultimediaPlayer
         private System.Windows.Forms.Panel panelSearchBar;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panelMediaBottom;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTitle;
+        private MetroFramework.Controls.MetroLabel labelPlayerEnd;
+        private MetroFramework.Controls.MetroLabel labelPlayerStart;
+        private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
+        private MetroFramework.Controls.MetroTrackBar playerTrackBar;
+        private System.Windows.Forms.PictureBox currentPlayPictureBox;
+        private FontAwesome.Sharp.IconButton btnVolume;
+        private FontAwesome.Sharp.IconButton btnPrev;
+        private FontAwesome.Sharp.IconButton btnNext;
+        private FontAwesome.Sharp.IconButton btnPlay;
+        private System.Windows.Forms.Panel PanelElementList;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.Label labelAuthor1;
+        private System.Windows.Forms.Label labelTitle1;
+        private FontAwesome.Sharp.IconButton btnPlaySong1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
