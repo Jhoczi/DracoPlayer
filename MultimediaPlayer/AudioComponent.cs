@@ -33,7 +33,6 @@ namespace MultimediaPlayer
             if (_outputDevice == null)
             {
                 Init();
-                
             }
             _outputDevice.Play();
         }
@@ -53,6 +52,10 @@ namespace MultimediaPlayer
             //_outputDevice = null;
             _audioFile.Dispose();
             //_audioFile = null;
+        }
+        public TimeSpan GetMediaLength()
+        {
+            return _audioFile.TotalTime;
         }
     }
 }

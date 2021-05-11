@@ -29,6 +29,7 @@ namespace MultimediaPlayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnFilms = new FontAwesome.Sharp.IconButton();
             this.labelVideos = new System.Windows.Forms.Label();
@@ -64,6 +65,7 @@ namespace MultimediaPlayer
             this.labelTitle1 = new System.Windows.Forms.Label();
             this.btnPlaySong1 = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mediaTimer = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelSearchBar.SuspendLayout();
@@ -504,7 +506,7 @@ namespace MultimediaPlayer
             this.playerTrackBar.TabIndex = 1;
             this.playerTrackBar.Text = "metroTrackBar1";
             this.playerTrackBar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.playerTrackBar.Value = 20;
+            this.playerTrackBar.Value = 10;
             // 
             // currentPlayPictureBox
             // 
@@ -605,6 +607,10 @@ namespace MultimediaPlayer
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // mediaTimer
+            // 
+            this.mediaTimer.Interval = 1000;
+            // 
             // MainFormComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -668,5 +674,6 @@ namespace MultimediaPlayer
         private System.Windows.Forms.Label labelTitle1;
         private FontAwesome.Sharp.IconButton btnPlaySong1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer mediaTimer;
     }
 }
