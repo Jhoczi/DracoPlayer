@@ -44,7 +44,7 @@ namespace MultimediaPlayer
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelSearchBar = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textSearch = new System.Windows.Forms.TextBox();
             this.iconLogo = new FontAwesome.Sharp.IconButton();
             this.panelMediaBottom = new System.Windows.Forms.Panel();
             this.btnVolume = new FontAwesome.Sharp.IconButton();
@@ -55,10 +55,11 @@ namespace MultimediaPlayer
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelPlayerEnd = new MetroFramework.Controls.MetroLabel();
             this.labelPlayerStart = new MetroFramework.Controls.MetroLabel();
-            this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
+            this.metroVolumeTrackbar = new MetroFramework.Controls.MetroTrackBar();
             this.playerTrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.currentPlayPictureBox = new System.Windows.Forms.PictureBox();
             this.panelMainMenu = new System.Windows.Forms.Panel();
+            this.labelTest = new System.Windows.Forms.Label();
             this.PanelElementList = new System.Windows.Forms.Panel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.labelAuthor1 = new System.Windows.Forms.Label();
@@ -288,7 +289,7 @@ namespace MultimediaPlayer
             // panelSearchBar
             // 
             this.panelSearchBar.Controls.Add(this.iconButton1);
-            this.panelSearchBar.Controls.Add(this.textBox1);
+            this.panelSearchBar.Controls.Add(this.textSearch);
             this.panelSearchBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSearchBar.Location = new System.Drawing.Point(0, 69);
             this.panelSearchBar.Name = "panelSearchBar";
@@ -314,19 +315,19 @@ namespace MultimediaPlayer
             this.iconButton1.TabIndex = 1;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // textSearch
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(20, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Search...";
-            this.textBox1.Size = new System.Drawing.Size(144, 24);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
+            this.textSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textSearch.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textSearch.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textSearch.ForeColor = System.Drawing.Color.White;
+            this.textSearch.Location = new System.Drawing.Point(20, 18);
+            this.textSearch.Name = "textSearch";
+            this.textSearch.PlaceholderText = "Search...";
+            this.textSearch.Size = new System.Drawing.Size(144, 24);
+            this.textSearch.TabIndex = 0;
+            this.textSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // iconLogo
             // 
@@ -361,7 +362,7 @@ namespace MultimediaPlayer
             this.panelMediaBottom.Controls.Add(this.labelTitle);
             this.panelMediaBottom.Controls.Add(this.labelPlayerEnd);
             this.panelMediaBottom.Controls.Add(this.labelPlayerStart);
-            this.panelMediaBottom.Controls.Add(this.metroTrackBar1);
+            this.panelMediaBottom.Controls.Add(this.metroVolumeTrackbar);
             this.panelMediaBottom.Controls.Add(this.playerTrackBar);
             this.panelMediaBottom.Controls.Add(this.currentPlayPictureBox);
             this.panelMediaBottom.Location = new System.Drawing.Point(220, 585);
@@ -383,6 +384,7 @@ namespace MultimediaPlayer
             this.btnVolume.Size = new System.Drawing.Size(31, 34);
             this.btnVolume.TabIndex = 10;
             this.btnVolume.UseVisualStyleBackColor = true;
+            this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
             // btnPrev
             // 
@@ -473,24 +475,25 @@ namespace MultimediaPlayer
             this.labelPlayerStart.ForeColor = System.Drawing.Color.White;
             this.labelPlayerStart.Location = new System.Drawing.Point(148, 17);
             this.labelPlayerStart.Name = "labelPlayerStart";
-            this.labelPlayerStart.Size = new System.Drawing.Size(36, 19);
+            this.labelPlayerStart.Size = new System.Drawing.Size(44, 19);
             this.labelPlayerStart.TabIndex = 3;
-            this.labelPlayerStart.Text = "0:00";
+            this.labelPlayerStart.Text = "00:00";
             // 
-            // metroTrackBar1
+            // metroVolumeTrackbar
             // 
-            this.metroTrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTrackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.metroTrackBar1.CustomBackground = true;
-            this.metroTrackBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(5)))), ((int)(((byte)(78)))));
-            this.metroTrackBar1.Location = new System.Drawing.Point(871, 64);
-            this.metroTrackBar1.Name = "metroTrackBar1";
-            this.metroTrackBar1.Size = new System.Drawing.Size(88, 27);
-            this.metroTrackBar1.Style = MetroFramework.MetroColorStyle.White;
-            this.metroTrackBar1.TabIndex = 2;
-            this.metroTrackBar1.Text = "metroTrackBar1";
-            this.metroTrackBar1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTrackBar1.Value = 20;
+            this.metroVolumeTrackbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroVolumeTrackbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.metroVolumeTrackbar.CustomBackground = true;
+            this.metroVolumeTrackbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(5)))), ((int)(((byte)(78)))));
+            this.metroVolumeTrackbar.Location = new System.Drawing.Point(871, 64);
+            this.metroVolumeTrackbar.Name = "metroVolumeTrackbar";
+            this.metroVolumeTrackbar.Size = new System.Drawing.Size(88, 27);
+            this.metroVolumeTrackbar.Style = MetroFramework.MetroColorStyle.White;
+            this.metroVolumeTrackbar.TabIndex = 2;
+            this.metroVolumeTrackbar.Text = "metroTrackBar1";
+            this.metroVolumeTrackbar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroVolumeTrackbar.Value = 20;
+            this.metroVolumeTrackbar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroVolumeTrackbar_Scroll);
             // 
             // playerTrackBar
             // 
@@ -507,6 +510,7 @@ namespace MultimediaPlayer
             this.playerTrackBar.Text = "metroTrackBar1";
             this.playerTrackBar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.playerTrackBar.Value = 10;
+            this.playerTrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.playerTrackBar_Scroll);
             // 
             // currentPlayPictureBox
             // 
@@ -522,11 +526,22 @@ namespace MultimediaPlayer
             // panelMainMenu
             // 
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.panelMainMenu.Controls.Add(this.labelTest);
             this.panelMainMenu.Controls.Add(this.PanelElementList);
             this.panelMainMenu.Location = new System.Drawing.Point(220, 0);
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(980, 585);
             this.panelMainMenu.TabIndex = 1;
+            // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelTest.Location = new System.Drawing.Point(163, 187);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(38, 15);
+            this.labelTest.TabIndex = 1;
+            this.labelTest.Text = "label2";
             // 
             // PanelElementList
             // 
@@ -609,7 +624,8 @@ namespace MultimediaPlayer
             // 
             // mediaTimer
             // 
-            this.mediaTimer.Interval = 1000;
+            this.mediaTimer.Interval = 250;
+            this.mediaTimer.Tick += new System.EventHandler(this.mediaTimer_Tick);
             // 
             // MainFormComponent
             // 
@@ -630,6 +646,7 @@ namespace MultimediaPlayer
             this.panelMediaBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentPlayPictureBox)).EndInit();
             this.panelMainMenu.ResumeLayout(false);
+            this.panelMainMenu.PerformLayout();
             this.PanelElementList.ResumeLayout(false);
             this.PanelElementList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -655,13 +672,13 @@ namespace MultimediaPlayer
         private FontAwesome.Sharp.IconButton iconLogo;
         private System.Windows.Forms.Panel panelSearchBar;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Panel panelMediaBottom;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelTitle;
         private MetroFramework.Controls.MetroLabel labelPlayerEnd;
         private MetroFramework.Controls.MetroLabel labelPlayerStart;
-        private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
+        private MetroFramework.Controls.MetroTrackBar metroVolumeTrackbar;
         private MetroFramework.Controls.MetroTrackBar playerTrackBar;
         private System.Windows.Forms.PictureBox currentPlayPictureBox;
         private FontAwesome.Sharp.IconButton btnVolume;
@@ -675,5 +692,6 @@ namespace MultimediaPlayer
         private FontAwesome.Sharp.IconButton btnPlaySong1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer mediaTimer;
+        private System.Windows.Forms.Label labelTest;
     }
 }

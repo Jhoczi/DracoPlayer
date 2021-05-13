@@ -7,55 +7,69 @@ namespace MultimediaPlayer
 {
     class AudioComponent
     {
-        private WaveOutEvent _outputDevice;
-        private AudioFileReader _audioFile;
-
+/*        private WaveOutEvent _outputDevice;
+        private AudioFileReader _audioFile;*/
+        public WaveOutEvent OutputDevice { get; set; }
+        public AudioFileReader AudioFile { get; set; }
+        public bool IsRunning { get; set; }
+        public float CurrentVolume { get; set; }
         public AudioComponent()
         {
             Init();
         }
         private void Init()
         {
-            if (_outputDevice == null)
+            if (OutputDevice == null)
             {
-                _outputDevice = new WaveOutEvent();
-                _outputDevice.PlaybackStopped += OnPlaybackStopped;
+                OutputDevice = new WaveOutEvent();
+                OutputDevice.PlaybackStopped += OnPlaybackStopped;
             }
-            if (_audioFile == null)
+            if (AudioFile == null)
             {
-                _audioFile = new AudioFileReader(@"E:\test.mp3");
-                _outputDevice.Init(_audioFile);
+                AudioFile = new AudioFileReader(@"E:\test.mp3");
+                OutputDevice.Init(AudioFile);
             }
+            CurrentVolume = 0.5f;
+            ChangeVolume();
         }
 
         public void Play()
         {
-            if (_outputDevice == null)
-            {
-                Init();
-            }
-            _outputDevice.Play();
+            if (OutputDevice.PlaybackState == PlaybackState.Playing)
+                OutputDevice.Pause();
+            IsRunning = true;
+            OutputDevice.Play();
         }
         public void Stop()
         {
-            if (_outputDevice != null)
+            IsRunning = false;
+            if (OutputDevice != null)
             {
-                if (_outputDevice.PlaybackState == PlaybackState.Playing)
-                    _outputDevice.Pause();
-                else if (_outputDevice.PlaybackState == PlaybackState.Paused)
-                    _outputDevice.Play();
+                if (OutputDevice.PlaybackState == PlaybackState.Playing)
+                    OutputDevice.Pause();
+                else if (OutputDevice.PlaybackState == PlaybackState.Paused)
+                    OutputDevice.Play();
             }
         }
         private void OnPlaybackStopped(object sender, StoppedEventArgs args)
         {
-            _outputDevice.Dispose();
-            //_outputDevice = null;
-            _audioFile.Dispose();
-            //_audioFile = null;
+            OutputDevice.Dispose();
+            OutputDevice = null;
+            AudioFile.Dispose();
+            AudioFile = null;
         }
         public TimeSpan GetMediaLength()
         {
-            return _audioFile.TotalTime;
+            return AudioFile.TotalTime;
         }
+        public int GetCurrentTime()
+        {
+            return (int)AudioFile.CurrentTime.TotalSeconds;
+        }
+        public void ChangeVolume()
+        {
+            AudioFile.Volume = CurrentVolume;
+        }
+
     }
 }
