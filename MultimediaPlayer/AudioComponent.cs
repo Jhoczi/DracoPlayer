@@ -26,7 +26,7 @@ namespace MultimediaPlayer
             }
             if (AudioFile == null)
             {
-                AudioFile = new AudioFileReader(@"E:\test.mp3");
+                AudioFile = new AudioFileReader(@"E:\Muzyka\test.mp3");
                 OutputDevice.Init(AudioFile);
             }
             CurrentVolume = 0.5f;
@@ -36,7 +36,7 @@ namespace MultimediaPlayer
         public void Play()
         {
             if (OutputDevice.PlaybackState == PlaybackState.Playing)
-                OutputDevice.Pause();
+                OutputDevice.Stop();
             IsRunning = true;
             OutputDevice.Play();
         }
@@ -50,6 +50,7 @@ namespace MultimediaPlayer
                 else if (OutputDevice.PlaybackState == PlaybackState.Paused)
                     OutputDevice.Play();
             }
+            
         }
         private void OnPlaybackStopped(object sender, StoppedEventArgs args)
         {

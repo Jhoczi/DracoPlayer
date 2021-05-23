@@ -1,10 +1,12 @@
-﻿using NAudio.Wave;
+﻿using MultimediaPlayer.Resources;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -13,14 +15,12 @@ namespace MultimediaPlayer
 {
     public partial class MainFormComponent : Form
     {
-        // Delegat Definition
-        public delegate void ManageMedia(object? sender, EventArgs e);
         // Font
         PrivateFontCollection _pfc = new PrivateFontCollection();
         // NAudio
-        AudioComponent player = new AudioComponent();
-
-        ManageMedia mediaDelegate;
+        NAudioComponent player;
+        TagLibMetadata mediaMetadata;
+        
 
         public int MediaStartPlayer { get; set; } = 0;
         public int TimerTick { get; set; }
@@ -31,13 +31,20 @@ namespace MultimediaPlayer
             InitCustomFont();
             this.Font = new Font(_pfc.Families[0],this.Font.Size);
             TimerTick = mediaTimer.Interval * 4;
+            Init();
+        }
+
+        private void Init()
+        {
+            player = new NAudioComponent();
+            UpdateMediaData();
             playerTrackBar.Value = 0;
-            playerTrackBar.Maximum = (int)player.GetMediaLength().TotalSeconds * 4;
+            playerTrackBar.Maximum = (int)player.GetEntityLengthInSeconds();
             metroVolumeTrackbar.Maximum = 100;
+            //metroVolumeTrackbar.Value = (int)player.GetVolume() * 100;
             metroVolumeTrackbar.Value = (int)(player.AudioFile.Volume * 100);
             mediaTimer.Tick += UpdatePlayerStart;
             mediaTimer.Tick += UpdateTrackBar;
-           
         }
 
         private void InitCustomFont()
@@ -58,50 +65,73 @@ namespace MultimediaPlayer
             {
                 btnPlay.IconChar = FontAwesome.Sharp.IconChar.StopCircle;
                 player.Play();
-                playerTrackBar.Maximum = (int)player.GetMediaLength().TotalSeconds;
-                UpdatePlayerEndTime();    
+                UpdateMediaData();
             }
             else
             {
                 btnPlay.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
-                player.Stop();            
+                player.Pause();            
             }
+            UpdatePlayerComponents();
+            var tfile = TagLib.File.Create(@"E:\Muzyka\01 THE THEME FROM BIG WAVE.mp3");
+            string title = tfile.Tag.Title;
+            TimeSpan duration = tfile.Properties.Duration;
+            Console.WriteLine("Title: {0}, duration: {1}", title, duration);
+
+            labelTest.Text = $"{mediaMetadata.MetaDataTL.Tag.Title}";
+        }
+        private void UpdateMediaData()
+        {
+            if (player != null)
+            {
+                mediaMetadata = new TagLibMetadata(player.AudioFile.FileName);
+                labelTitle.Text = mediaMetadata.MetaDataTL.Tag.Title;
+                labelAuthor.Text = mediaMetadata.MetaDataTL.Tag.AlbumArtists[0];
+                currentPlayPictureBox.Image = mediaMetadata.GetImage();
+            }
+        }
+            
+        private void UpdatePlayerComponents()
+        {
+
             mediaTimer.Enabled = !mediaTimer.Enabled;
+            playerTrackBar.Maximum = (int)player.GetEntityLengthInSeconds();
+            UpdatePlayerEndTime();
+            metroVolumeTrackbar.Value = metroVolumeTrackbar.Value = (int)(player.AudioFile.Volume * 100);
+
         }
         private void UpdatePlayerEndTime()
         {
-            var minutes =  (int)player.GetMediaLength().TotalMinutes;
-            var seconds = player.GetMediaLength().Seconds;
+            var minutes =  (int)player.GetEntityLengthInSeconds()/60;
+            var seconds = (int)player.GetEntityLengthInSeconds()%60;
             string mf =  minutes < 10 ? $"0{minutes}" : minutes.ToString();
             labelPlayerEnd.Text = $"{mf}:{seconds}";
         }
         private void UpdatePlayerStart(object sender, EventArgs e)
         {
-            if (player.IsRunning)
-            {
-                playerTrackBar.Value = player.GetCurrentTime();
+            
+                playerTrackBar.Value = (int)player.GetPositionInSeconds();
                 var minutes = (int)playerTrackBar.Value / 60;
                 var seconds = (int)playerTrackBar.Value % 60;
                 string sf = seconds < 10 ? $"0{seconds}" : $"{seconds}";
                 string mf = minutes < 10 ? $"0{minutes}" : $"{minutes}";
                 labelPlayerStart.Text = $"{mf}:{sf}";
-            }
-            if (MediaStartPlayer == (int)player.GetMediaLength().TotalSeconds +1)
+            
+            if (MediaStartPlayer == (int)player.GetEntityLengthInSeconds() +1)
             {
                 ResetMenuPlayer();
             }
         }
         private void UpdateTrackBar(object sender, EventArgs e)
         {
-            if (player.IsRunning)
-            {
-                playerTrackBar.Value = player.GetCurrentTime();
+            
+                playerTrackBar.Value = (int)player.GetPositionInSeconds();
                 var minutes = (int)playerTrackBar.Value / 60;
                 var seconds = (int)playerTrackBar.Value % 60;
                 string sf = seconds < 10 ? $"0{seconds}" : $"{seconds}";
                 string mf = minutes < 10 ? $"0{minutes}" : $"{minutes}";
                 //labelTest.Text = $"{mf}:{sf}";
-            }
+            
             if (playerTrackBar.Value == playerTrackBar.Maximum)
             {
                 ResetMenuPlayer();
@@ -109,12 +139,11 @@ namespace MultimediaPlayer
         }
         private void ResetMenuPlayer()
         {
-            player.IsRunning = false;
-            player.Stop();
             mediaTimer.Enabled = !mediaTimer.Enabled;
             btnPlay.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
             labelPlayerStart.Text = "00:00";
             playerTrackBar.Value = 0;
+
         }
 
         private void playerTrackBar_Scroll(object sender, ScrollEventArgs e)
@@ -129,7 +158,7 @@ namespace MultimediaPlayer
 
         private void mediaTimer_Tick(object sender, EventArgs e)
         {
-
+            //labelTest.Text = player.AudioFile;
         }
 
         private void btnVolume_Click(object sender, EventArgs e)
@@ -141,7 +170,7 @@ namespace MultimediaPlayer
             }
             else
             {
-                player.ChangeVolume();
+                player.SetVolume(player.CurrentVolume);
                 metroVolumeTrackbar.Value = (int)(player.AudioFile.Volume * 100);   
             }         
             UpdateVolumeIcon();
@@ -151,14 +180,13 @@ namespace MultimediaPlayer
         {
 
             player.CurrentVolume = (float)metroVolumeTrackbar.Value / 100;
-            player.ChangeVolume();
-            labelTest.Text = ((float)metroVolumeTrackbar.Value/100).ToString();
+            player.SetVolume(player.CurrentVolume);
             UpdateVolumeIcon();
         }
 
         private void UpdateVolumeIcon()
         {
-            if (btnVolume.IconChar == FontAwesome.Sharp.IconChar.VolumeUp && metroVolumeTrackbar.Value == 0)
+            if (btnVolume.IconChar == FontAwesome.Sharp.IconChar.VolumeUp && metroVolumeTrackbar.Value < 1)
             {
                 btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeMute;
             }
@@ -166,6 +194,27 @@ namespace MultimediaPlayer
             {
                 btnVolume.IconChar = FontAwesome.Sharp.IconChar.VolumeUp;
             }
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            //player.InitPlaylist();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            ResetMenuPlayer();
+            player.Stop();
+            player.Next();
+            btnPlay.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            ResetMenuPlayer();
+            player.Stop();
+            player.Prev();
+            btnPlay.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;         
         }
     }
 }
