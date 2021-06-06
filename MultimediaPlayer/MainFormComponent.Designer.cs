@@ -30,7 +30,6 @@ namespace MultimediaPlayer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormComponent));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnFilms = new FontAwesome.Sharp.IconButton();
             this.labelVideos = new System.Windows.Forms.Label();
@@ -60,20 +59,7 @@ namespace MultimediaPlayer
             this.playerTrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.currentPlayPictureBox = new System.Windows.Forms.PictureBox();
             this.panelMainMenu = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.smAvatarPB2 = new System.Windows.Forms.PictureBox();
             this.labelTest = new System.Windows.Forms.Label();
-            this.PanelElementList1 = new System.Windows.Forms.Panel();
-            this.metroLabelDuration = new MetroFramework.Controls.MetroLabel();
-            this.labelAuthor1 = new System.Windows.Forms.Label();
-            this.labelTitle1 = new System.Windows.Forms.Label();
-            this.btnPlaySong1 = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mediaTimer = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -81,10 +67,6 @@ namespace MultimediaPlayer
             this.panelMediaBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentPlayPictureBox)).BeginInit();
             this.panelMainMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.smAvatarPB2)).BeginInit();
-            this.PanelElementList1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -436,6 +418,7 @@ namespace MultimediaPlayer
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(48, 46);
             this.btnPlay.TabIndex = 7;
+            this.btnPlay.Tag = "playS";
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
@@ -528,120 +511,24 @@ namespace MultimediaPlayer
             // currentPlayPictureBox
             // 
             this.currentPlayPictureBox.BackgroundImage = global::MultimediaPlayer.Properties.Resources.zelaznaDziewica;
-            this.currentPlayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.currentPlayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.currentPlayPictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.currentPlayPictureBox.Location = new System.Drawing.Point(0, 0);
             this.currentPlayPictureBox.Name = "currentPlayPictureBox";
             this.currentPlayPictureBox.Size = new System.Drawing.Size(131, 142);
+            this.currentPlayPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.currentPlayPictureBox.TabIndex = 0;
             this.currentPlayPictureBox.TabStop = false;
             // 
             // panelMainMenu
             // 
+            this.panelMainMenu.AutoScroll = true;
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.panelMainMenu.Controls.Add(this.panel1);
             this.panelMainMenu.Controls.Add(this.labelTest);
-            this.panelMainMenu.Controls.Add(this.PanelElementList1);
             this.panelMainMenu.Location = new System.Drawing.Point(220, 0);
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(980, 585);
             this.panelMainMenu.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(71)))), ((int)(((byte)(82)))));
-            this.panel1.Controls.Add(this.metroLabel1);
-            this.panel1.Controls.Add(this.metroLabel2);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.iconButton2);
-            this.panel1.Controls.Add(this.smAvatarPB2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 69);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(980, 69);
-            this.panel1.TabIndex = 2;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.CustomBackground = true;
-            this.metroLabel1.CustomForeColor = true;
-            this.metroLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.ForeColor = System.Drawing.Color.White;
-            this.metroLabel1.Location = new System.Drawing.Point(576, 29);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(36, 19);
-            this.metroLabel1.TabIndex = 12;
-            this.metroLabel1.Text = "0:36";
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.CustomBackground = true;
-            this.metroLabel2.CustomForeColor = true;
-            this.metroLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.ForeColor = System.Drawing.Color.White;
-            this.metroLabel2.Location = new System.Drawing.Point(1352, 38);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(36, 19);
-            this.metroLabel2.TabIndex = 11;
-            this.metroLabel2.Text = "7:18";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(417, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 19);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Југославиан";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(182, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 19);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "2. Uz Maršala Tita";
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(110, 14);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(48, 50);
-            this.iconButton2.TabIndex = 11;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // smAvatarPB2
-            // 
-            this.smAvatarPB2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("smAvatarPB2.BackgroundImage")));
-            this.smAvatarPB2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.smAvatarPB2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.smAvatarPB2.Location = new System.Drawing.Point(10, 10);
-            this.smAvatarPB2.Name = "smAvatarPB2";
-            this.smAvatarPB2.Size = new System.Drawing.Size(57, 49);
-            this.smAvatarPB2.TabIndex = 0;
-            this.smAvatarPB2.TabStop = false;
             // 
             // labelTest
             // 
@@ -652,85 +539,6 @@ namespace MultimediaPlayer
             this.labelTest.Size = new System.Drawing.Size(38, 15);
             this.labelTest.TabIndex = 1;
             this.labelTest.Text = "label2";
-            // 
-            // PanelElementList1
-            // 
-            this.PanelElementList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(71)))), ((int)(((byte)(82)))));
-            this.PanelElementList1.Controls.Add(this.metroLabelDuration);
-            this.PanelElementList1.Controls.Add(this.labelAuthor1);
-            this.PanelElementList1.Controls.Add(this.labelTitle1);
-            this.PanelElementList1.Controls.Add(this.btnPlaySong1);
-            this.PanelElementList1.Controls.Add(this.pictureBox1);
-            this.PanelElementList1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelElementList1.Location = new System.Drawing.Point(0, 0);
-            this.PanelElementList1.Name = "PanelElementList1";
-            this.PanelElementList1.Padding = new System.Windows.Forms.Padding(10);
-            this.PanelElementList1.Size = new System.Drawing.Size(980, 69);
-            this.PanelElementList1.TabIndex = 0;
-            // 
-            // metroLabelDuration
-            // 
-            this.metroLabelDuration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabelDuration.AutoSize = true;
-            this.metroLabelDuration.CustomBackground = true;
-            this.metroLabelDuration.CustomForeColor = true;
-            this.metroLabelDuration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroLabelDuration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.metroLabelDuration.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabelDuration.ForeColor = System.Drawing.Color.White;
-            this.metroLabelDuration.Location = new System.Drawing.Point(576, 28);
-            this.metroLabelDuration.Name = "metroLabelDuration";
-            this.metroLabelDuration.Size = new System.Drawing.Size(36, 19);
-            this.metroLabelDuration.TabIndex = 11;
-            this.metroLabelDuration.Text = "7:18";
-            // 
-            // labelAuthor1
-            // 
-            this.labelAuthor1.AutoSize = true;
-            this.labelAuthor1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAuthor1.ForeColor = System.Drawing.Color.LightGray;
-            this.labelAuthor1.Location = new System.Drawing.Point(417, 28);
-            this.labelAuthor1.Name = "labelAuthor1";
-            this.labelAuthor1.Size = new System.Drawing.Size(90, 19);
-            this.labelAuthor1.TabIndex = 11;
-            this.labelAuthor1.Text = "Iron Maiden";
-            // 
-            // labelTitle1
-            // 
-            this.labelTitle1.AutoSize = true;
-            this.labelTitle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle1.ForeColor = System.Drawing.Color.LightGray;
-            this.labelTitle1.Location = new System.Drawing.Point(182, 28);
-            this.labelTitle1.Name = "labelTitle1";
-            this.labelTitle1.Size = new System.Drawing.Size(133, 19);
-            this.labelTitle1.TabIndex = 11;
-            this.labelTitle1.Text = "1. Fear of the Dark";
-            // 
-            // btnPlaySong1
-            // 
-            this.btnPlaySong1.FlatAppearance.BorderSize = 0;
-            this.btnPlaySong1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlaySong1.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPlaySong1.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
-            this.btnPlaySong1.IconColor = System.Drawing.Color.White;
-            this.btnPlaySong1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPlaySong1.IconSize = 24;
-            this.btnPlaySong1.Location = new System.Drawing.Point(110, 14);
-            this.btnPlaySong1.Name = "btnPlaySong1";
-            this.btnPlaySong1.Size = new System.Drawing.Size(48, 50);
-            this.btnPlaySong1.TabIndex = 11;
-            this.btnPlaySong1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::MultimediaPlayer.Properties.Resources.zelaznaDziewica;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 49);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // mediaTimer
             // 
@@ -757,12 +565,6 @@ namespace MultimediaPlayer
             ((System.ComponentModel.ISupportInitialize)(this.currentPlayPictureBox)).EndInit();
             this.panelMainMenu.ResumeLayout(false);
             this.panelMainMenu.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.smAvatarPB2)).EndInit();
-            this.PanelElementList1.ResumeLayout(false);
-            this.PanelElementList1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -798,20 +600,7 @@ namespace MultimediaPlayer
         private FontAwesome.Sharp.IconButton btnPrev;
         private FontAwesome.Sharp.IconButton btnNext;
         private FontAwesome.Sharp.IconButton btnPlay;
-        private System.Windows.Forms.Panel PanelElementList1;
-        private MetroFramework.Controls.MetroLabel metroLabelDuration;
-        private System.Windows.Forms.Label labelAuthor1;
-        private System.Windows.Forms.Label labelTitle1;
-        private FontAwesome.Sharp.IconButton btnPlaySong1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer mediaTimer;
         private System.Windows.Forms.Label labelTest;
-        private System.Windows.Forms.Panel panel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.PictureBox smAvatarPB2;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }

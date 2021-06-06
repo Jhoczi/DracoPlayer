@@ -14,14 +14,14 @@ namespace MultimediaPlayer.Resources
 
         public AudioPlaylist playlist { get; set; }
 
-        private string _filePath;
+        private string _filePath = "E:\\Muzyka";
 
         // Constructor
         public NAudioComponent()
         {
             CurrentVolume = 0.5f;
             playlist = new AudioPlaylist();
-            playlist.InitPlaylist("E:\\Muzyka");
+            playlist.InitPlaylist(_filePath);
             if (AudioFile == null)
             {
                 AudioFile = new AudioFileReader(playlist.Songs[playlist.Index])
@@ -40,14 +40,18 @@ namespace MultimediaPlayer.Resources
         // Methods
         public void Play()
         {
-            OutputDevice = new WaveOutEvent();
-            AudioFile = new AudioFileReader(playlist.Songs[playlist.Index]);
-            OutputDevice.Init(AudioFile);
             if (OutputDevice.PlaybackState == PlaybackState.Paused || OutputDevice.PlaybackState == PlaybackState.Stopped)
             {
                 OutputDevice.Play();
             }
             SetVolume(CurrentVolume);
+            
+        }
+        public void NextSong()
+        {
+            OutputDevice = new WaveOutEvent();
+            AudioFile = new AudioFileReader(playlist.Songs[playlist.Index]);
+            OutputDevice.Init(AudioFile);
         }
         public void Stop()
         {
@@ -71,6 +75,12 @@ namespace MultimediaPlayer.Resources
                     Pause();
                 else if (OutputDevice.PlaybackState == PlaybackState.Paused)
                     Play();
+                else if (OutputDevice.PlaybackState == PlaybackState.Stopped)
+                {
+                    NextSong();
+                    Play();
+                }
+                   
             }
             else
             {
@@ -103,7 +113,7 @@ namespace MultimediaPlayer.Resources
         public double GetPositionInSeconds()
         {
             if (AudioFile != null)
-                return AudioFile.CurrentTime.TotalSeconds;
+                return (int)AudioFile.CurrentTime.TotalSeconds;
             else
                 return 0;
         }
@@ -129,25 +139,6 @@ namespace MultimediaPlayer.Resources
             {
                 AudioFile.Volume = value;
             }
-
-        }
-
-        public void Next()
-        {
-            if (playlist.Index >= playlist.Songs.Count - 1 )
-            {
-                return;
-            }
-            playlist.Index++;
-        }
-
-        public void Prev()
-        {
-            if (playlist.Index <= 0)
-            {
-                return;
-            }
-            playlist.Index--;
         }
     }
 }

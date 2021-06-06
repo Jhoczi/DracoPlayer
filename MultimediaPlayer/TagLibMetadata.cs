@@ -18,8 +18,13 @@ namespace MultimediaPlayer
         
         public Image GetImage()
         {
-            MemoryStream ms = new MemoryStream(MetaDataTL.Tag.Pictures[0].Data.Data);
-            return Image.FromStream(ms);
+            MemoryStream ms;
+            if (MetaDataTL.Tag.Pictures.Length > 0)
+            {
+                ms = new MemoryStream(MetaDataTL.Tag.Pictures[0].Data.Data);
+                return Image.FromStream(ms);
+            }
+            return null;
         }
             
 
