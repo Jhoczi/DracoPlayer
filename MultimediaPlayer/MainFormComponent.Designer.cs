@@ -31,13 +31,7 @@ namespace MultimediaPlayer
         {
             this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnFilms = new FontAwesome.Sharp.IconButton();
-            this.labelVideos = new System.Windows.Forms.Label();
-            this.btnAlbums = new FontAwesome.Sharp.IconButton();
             this.btnArtists = new FontAwesome.Sharp.IconButton();
-            this.btnSongs = new FontAwesome.Sharp.IconButton();
-            this.labelYourMusic = new System.Windows.Forms.Label();
-            this.btnPlaylists = new FontAwesome.Sharp.IconButton();
             this.btnActivity = new FontAwesome.Sharp.IconButton();
             this.btnBrowse = new FontAwesome.Sharp.IconButton();
             this.labelMain = new System.Windows.Forms.Label();
@@ -58,27 +52,19 @@ namespace MultimediaPlayer
             this.metroVolumeTrackbar = new MetroFramework.Controls.MetroTrackBar();
             this.playerTrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.currentPlayPictureBox = new System.Windows.Forms.PictureBox();
-            this.panelMainMenu = new System.Windows.Forms.Panel();
-            this.labelTest = new System.Windows.Forms.Label();
             this.mediaTimer = new System.Windows.Forms.Timer(this.components);
+            this.panelMainMenu = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelSearchBar.SuspendLayout();
             this.panelMediaBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentPlayPictureBox)).BeginInit();
-            this.panelMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.panelMenu.Controls.Add(this.btnFilms);
-            this.panelMenu.Controls.Add(this.labelVideos);
-            this.panelMenu.Controls.Add(this.btnAlbums);
             this.panelMenu.Controls.Add(this.btnArtists);
-            this.panelMenu.Controls.Add(this.btnSongs);
-            this.panelMenu.Controls.Add(this.labelYourMusic);
-            this.panelMenu.Controls.Add(this.btnPlaylists);
             this.panelMenu.Controls.Add(this.btnActivity);
             this.panelMenu.Controls.Add(this.btnBrowse);
             this.panelMenu.Controls.Add(this.labelMain);
@@ -89,60 +75,6 @@ namespace MultimediaPlayer
             this.panelMenu.Size = new System.Drawing.Size(220, 727);
             this.panelMenu.TabIndex = 0;
             // 
-            // btnFilms
-            // 
-            this.btnFilms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
-            this.btnFilms.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFilms.FlatAppearance.BorderSize = 0;
-            this.btnFilms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilms.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFilms.ForeColor = System.Drawing.Color.White;
-            this.btnFilms.IconChar = FontAwesome.Sharp.IconChar.Video;
-            this.btnFilms.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnFilms.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFilms.Location = new System.Drawing.Point(0, 647);
-            this.btnFilms.Name = "btnFilms";
-            this.btnFilms.Size = new System.Drawing.Size(220, 60);
-            this.btnFilms.TabIndex = 16;
-            this.btnFilms.Text = "Video";
-            this.btnFilms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilms.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFilms.UseVisualStyleBackColor = false;
-            // 
-            // labelVideos
-            // 
-            this.labelVideos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelVideos.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelVideos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.labelVideos.Location = new System.Drawing.Point(0, 597);
-            this.labelVideos.Margin = new System.Windows.Forms.Padding(0);
-            this.labelVideos.Name = "labelVideos";
-            this.labelVideos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.labelVideos.Size = new System.Drawing.Size(220, 50);
-            this.labelVideos.TabIndex = 15;
-            this.labelVideos.Text = "VIDEOS";
-            this.labelVideos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnAlbums
-            // 
-            this.btnAlbums.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
-            this.btnAlbums.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAlbums.FlatAppearance.BorderSize = 0;
-            this.btnAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlbums.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAlbums.ForeColor = System.Drawing.Color.White;
-            this.btnAlbums.IconChar = FontAwesome.Sharp.IconChar.CompactDisc;
-            this.btnAlbums.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAlbums.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAlbums.Location = new System.Drawing.Point(0, 537);
-            this.btnAlbums.Name = "btnAlbums";
-            this.btnAlbums.Size = new System.Drawing.Size(220, 60);
-            this.btnAlbums.TabIndex = 14;
-            this.btnAlbums.Text = "Albums";
-            this.btnAlbums.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlbums.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAlbums.UseVisualStyleBackColor = false;
-            // 
             // btnArtists
             // 
             this.btnArtists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
@@ -151,70 +83,17 @@ namespace MultimediaPlayer
             this.btnArtists.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArtists.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnArtists.ForeColor = System.Drawing.Color.White;
-            this.btnArtists.IconChar = FontAwesome.Sharp.IconChar.Guitar;
-            this.btnArtists.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnArtists.IconChar = FontAwesome.Sharp.IconChar.Music;
+            this.btnArtists.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.btnArtists.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnArtists.Location = new System.Drawing.Point(0, 477);
+            this.btnArtists.Location = new System.Drawing.Point(0, 307);
             this.btnArtists.Name = "btnArtists";
             this.btnArtists.Size = new System.Drawing.Size(220, 60);
-            this.btnArtists.TabIndex = 13;
+            this.btnArtists.TabIndex = 10;
             this.btnArtists.Text = "Artists";
-            this.btnArtists.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnArtists.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnArtists.UseVisualStyleBackColor = false;
-            // 
-            // btnSongs
-            // 
-            this.btnSongs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
-            this.btnSongs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSongs.FlatAppearance.BorderSize = 0;
-            this.btnSongs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongs.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSongs.ForeColor = System.Drawing.Color.White;
-            this.btnSongs.IconChar = FontAwesome.Sharp.IconChar.Music;
-            this.btnSongs.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnSongs.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSongs.Location = new System.Drawing.Point(0, 417);
-            this.btnSongs.Name = "btnSongs";
-            this.btnSongs.Size = new System.Drawing.Size(220, 60);
-            this.btnSongs.TabIndex = 12;
-            this.btnSongs.Text = "Music";
-            this.btnSongs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSongs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSongs.UseVisualStyleBackColor = false;
-            // 
-            // labelYourMusic
-            // 
-            this.labelYourMusic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelYourMusic.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelYourMusic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(217)))));
-            this.labelYourMusic.Location = new System.Drawing.Point(0, 367);
-            this.labelYourMusic.Margin = new System.Windows.Forms.Padding(0);
-            this.labelYourMusic.Name = "labelYourMusic";
-            this.labelYourMusic.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.labelYourMusic.Size = new System.Drawing.Size(220, 50);
-            this.labelYourMusic.TabIndex = 11;
-            this.labelYourMusic.Text = "YOUR MUSIC";
-            this.labelYourMusic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnPlaylists
-            // 
-            this.btnPlaylists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
-            this.btnPlaylists.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPlaylists.FlatAppearance.BorderSize = 0;
-            this.btnPlaylists.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlaylists.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPlaylists.ForeColor = System.Drawing.Color.White;
-            this.btnPlaylists.IconChar = FontAwesome.Sharp.IconChar.Outdent;
-            this.btnPlaylists.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(5)))), ((int)(((byte)(78)))));
-            this.btnPlaylists.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPlaylists.Location = new System.Drawing.Point(0, 307);
-            this.btnPlaylists.Name = "btnPlaylists";
-            this.btnPlaylists.Size = new System.Drawing.Size(220, 60);
-            this.btnPlaylists.TabIndex = 10;
-            this.btnPlaylists.Text = "Playlists";
-            this.btnPlaylists.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPlaylists.UseVisualStyleBackColor = false;
+            this.btnArtists.Click += new System.EventHandler(this.btnArtists_Click);
             // 
             // btnActivity
             // 
@@ -225,7 +104,7 @@ namespace MultimediaPlayer
             this.btnActivity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActivity.ForeColor = System.Drawing.Color.White;
             this.btnActivity.IconChar = FontAwesome.Sharp.IconChar.History;
-            this.btnActivity.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(5)))), ((int)(((byte)(78)))));
+            this.btnActivity.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnActivity.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnActivity.Location = new System.Drawing.Point(0, 247);
             this.btnActivity.Name = "btnActivity";
@@ -234,6 +113,7 @@ namespace MultimediaPlayer
             this.btnActivity.Text = "Activity";
             this.btnActivity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnActivity.UseVisualStyleBackColor = false;
+            this.btnActivity.Click += new System.EventHandler(this.btnActivity_Click);
             // 
             // btnBrowse
             // 
@@ -307,6 +187,7 @@ namespace MultimediaPlayer
             this.iconButton1.Size = new System.Drawing.Size(38, 24);
             this.iconButton1.TabIndex = 1;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // textSearch
             // 
@@ -520,30 +401,21 @@ namespace MultimediaPlayer
             this.currentPlayPictureBox.TabIndex = 0;
             this.currentPlayPictureBox.TabStop = false;
             // 
+            // mediaTimer
+            // 
+            this.mediaTimer.Interval = 250;
+            // 
             // panelMainMenu
             // 
+            this.panelMainMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMainMenu.AutoScroll = true;
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.panelMainMenu.Controls.Add(this.labelTest);
             this.panelMainMenu.Location = new System.Drawing.Point(220, 0);
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(980, 585);
             this.panelMainMenu.TabIndex = 1;
-            // 
-            // labelTest
-            // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelTest.Location = new System.Drawing.Point(93, 352);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(38, 15);
-            this.labelTest.TabIndex = 1;
-            this.labelTest.Text = "label2";
-            // 
-            // mediaTimer
-            // 
-            this.mediaTimer.Interval = 250;
-            this.mediaTimer.Tick += new System.EventHandler(this.mediaTimer_Tick);
             // 
             // MainFormComponent
             // 
@@ -563,8 +435,6 @@ namespace MultimediaPlayer
             this.panelMediaBottom.ResumeLayout(false);
             this.panelMediaBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentPlayPictureBox)).EndInit();
-            this.panelMainMenu.ResumeLayout(false);
-            this.panelMainMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -573,17 +443,10 @@ namespace MultimediaPlayer
 
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Panel panelMainMenu;
-        private FontAwesome.Sharp.IconButton btnSongs;
-        private System.Windows.Forms.Label labelYourMusic;
-        private FontAwesome.Sharp.IconButton btnPlaylists;
+        private FontAwesome.Sharp.IconButton btnArtists;
         private FontAwesome.Sharp.IconButton btnActivity;
         private FontAwesome.Sharp.IconButton btnBrowse;
         private System.Windows.Forms.Label labelMain;
-        private FontAwesome.Sharp.IconButton btnArtists;
-        private FontAwesome.Sharp.IconButton btnFilms;
-        private System.Windows.Forms.Label labelVideos;
-        private FontAwesome.Sharp.IconButton btnAlbums;
         private FontAwesome.Sharp.IconButton iconLogo;
         private System.Windows.Forms.Panel panelSearchBar;
         private FontAwesome.Sharp.IconButton iconButton1;
@@ -601,6 +464,6 @@ namespace MultimediaPlayer
         private FontAwesome.Sharp.IconButton btnNext;
         private FontAwesome.Sharp.IconButton btnPlay;
         private System.Windows.Forms.Timer mediaTimer;
-        private System.Windows.Forms.Label labelTest;
+        private System.Windows.Forms.Panel panelMainMenu;
     }
 }

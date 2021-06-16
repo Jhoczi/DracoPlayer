@@ -26,7 +26,19 @@ namespace MultimediaPlayer
             }
             return null;
         }
-            
-
+        public string GetAuthor()
+        {
+            if (MetaDataTL.Tag.Performers.Length > 0)
+                return MetaDataTL.Tag.Performers[0];
+            else
+                return "Unknown";
+        }
+        public string GetTitle()
+        {
+            if (MetaDataTL.Tag.Title != null)
+                return MetaDataTL.Tag.Title;
+            else
+                return "Unknown";
+        }
     }
 }

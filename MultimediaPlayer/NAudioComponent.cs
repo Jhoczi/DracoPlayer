@@ -8,11 +8,11 @@ namespace MultimediaPlayer.Resources
 {
     class NAudioComponent
     {
-        public AudioFileReader AudioFile { get; set; }
-        public WaveOutEvent OutputDevice { get; set; }
+        public AudioFileReader AudioFile { get; private set; }
+        public WaveOutEvent OutputDevice { get; private set; }
+        public AudioPlaylist Playlist { get; private set; }
         public float CurrentVolume { get; set; }
-
-        public AudioPlaylist playlist { get; set; }
+        public bool IsRunning { get;private set; } = false;
 
         private string _filePath = "E:\\Muzyka";
 
@@ -20,11 +20,11 @@ namespace MultimediaPlayer.Resources
         public NAudioComponent()
         {
             CurrentVolume = 0.5f;
-            playlist = new AudioPlaylist();
-            playlist.InitPlaylist(_filePath);
+            Playlist = new AudioPlaylist();
+            Playlist.InitPlaylist(_filePath);
             if (AudioFile == null)
             {
-                AudioFile = new AudioFileReader(playlist.Songs[playlist.Index])
+                AudioFile = new AudioFileReader(Playlist.Songs[Playlist.Index])
                 {
                     Volume = CurrentVolume
                 };
@@ -36,12 +36,20 @@ namespace MultimediaPlayer.Resources
                 OutputDevice.Init(AudioFile);
             }
         }
-        
+
         // Methods
-        public void Play()
+        private void InitPlayer()
         {
+            OutputDevice = new WaveOutEvent();
+            AudioFile = new AudioFileReader(Playlist.Songs[Playlist.IndexList[Playlist.Index]]);
+            OutputDevice.Init(AudioFile);
+        }
+        private void Play()
+        {
+            InitPlayer();
             if (OutputDevice.PlaybackState == PlaybackState.Paused || OutputDevice.PlaybackState == PlaybackState.Stopped)
             {
+                IsRunning = true;
                 OutputDevice.Play();
             }
             SetVolume(CurrentVolume);
@@ -49,21 +57,28 @@ namespace MultimediaPlayer.Resources
         }
         public void NextSong()
         {
-            OutputDevice = new WaveOutEvent();
-            AudioFile = new AudioFileReader(playlist.Songs[playlist.Index]);
-            OutputDevice.Init(AudioFile);
+            Playlist.Next();
+            InitPlayer();
         }
-        public void Stop()
+        public void PrevSong()
+        {
+            Playlist.Prev();
+            InitPlayer();
+        }
+        
+        private void Stop()
         {
             if (OutputDevice != null)
             {
+                IsRunning = false;
                 OutputDevice.Stop();
             }
         }
-        public void Pause()
+        private void Pause()
         {
             if (OutputDevice != null)
             {
+                IsRunning = false;
                 OutputDevice.Pause();
             }
         }
@@ -77,10 +92,9 @@ namespace MultimediaPlayer.Resources
                     Play();
                 else if (OutputDevice.PlaybackState == PlaybackState.Stopped)
                 {
-                    NextSong();
+                    Playlist.IndexListHistory.Add(Playlist.Index);
                     Play();
                 }
-                   
             }
             else
             {
@@ -102,15 +116,15 @@ namespace MultimediaPlayer.Resources
             }
         }
 
-        public double GetEntityLengthInSeconds()
+        public int GetEntityLengthInSeconds()
         {
             if (AudioFile != null)
-                return AudioFile.TotalTime.TotalSeconds;
+                return (int)AudioFile.TotalTime.TotalSeconds;
             else
                 return 0;
         }
 
-        public double GetPositionInSeconds()
+        public int GetPositionInSeconds()
         {
             if (AudioFile != null)
                 return (int)AudioFile.CurrentTime.TotalSeconds;
@@ -139,6 +153,30 @@ namespace MultimediaPlayer.Resources
             {
                 AudioFile.Volume = value;
             }
+        }
+
+        public int GetCurrentIndex()
+        {
+            return Playlist.Index;
+        }
+
+        public int GetElementOfIndexList(int position)
+        {
+            if (Playlist == null)
+                throw new Exception("[ERROR]: Could not find playlist");
+            return Playlist.IndexList[position];
+
+        }
+
+        public void CreateNewPlaylist()
+        {
+            Playlist.NewPlaylist();
+        }
+
+        public void SetCurrentSong(object sender)
+        {
+            Playlist.SetSong(sender);
+            InitPlayer();
         }
     }
 }
